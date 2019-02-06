@@ -22,11 +22,11 @@ $container['view'] = function ($container) {
 
 $container['mailer'] = function($container){
     if($container->debug){
-        $transport = Swift_SmtpTransport::newInstance('localhost', 1025);
+        $transport = new Swift_SmtpTransport('localhost', 1025);
     } else {
-        $transport = Swift_MailTransport::newInstance();
+        $transport = new Swift_MailTransport();
     }
 
-  $mailer = SwiftMailer::newInstance($transport);
+  $mailer = new Swift_Mailer($transport);
   return $mailer;
 };

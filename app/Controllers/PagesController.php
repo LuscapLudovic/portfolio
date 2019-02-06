@@ -17,7 +17,8 @@ class PagesController extends Controller {
     }
 
     public function postContact(RequestInterface $request, ResponseInterface $response){
-        $message = \Swift_Message::newInstance('Message de contact')
+        $message = (new \Swift_Message())
+            ->setSubject('Message de contact')
             ->setFrom([$request->getParam('email') => $request->getParam('name')])
             ->setTo('contact@test.fr')
             ->setBody("un email vous a été envoyé :
