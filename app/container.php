@@ -9,9 +9,12 @@ $container['debug'] = function(){
 $container['view'] = function ($container) {
     $dir = dirname(__DIR__);
     $view = new \Slim\Views\Twig($dir. '/app/views', [
-        'cache' => false//$dir.'/tmp/cache'
+        'cache' => $container->debug ? false : $dir.'/tmp/cache',
+        'debug' => $container->debug
     ]);
-
+    if($container->debug){
+        $view->addExtension(new Twig_Extension_Debug());
+    }
     // Instantiate and add Slim specific extension
     $router = $container->get('router');
     $uri = \Slim\Http\Uri::createFromEnvironment(new \Slim\Http\Environment($_SERVER));
@@ -22,11 +25,11 @@ $container['view'] = function ($container) {
 
 $container['mailer'] = function($container){
     if($container->debug){
-        $transport = Swift_SmtpTransport::newInstance('localhost', 1025);
+        $transport = new Swift_SmtpTransport('localhost', 1025);
     } else {
-        $transport = Swift_MailTransport::newInstance();
+        $transport = new Swift_MailTransport();
     }
 
-  $mailer = SwiftMailer::newInstance($transport);
+  $mailer = new Swift_Mailer($transport);
   return $mailer;
 };
