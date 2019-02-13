@@ -24,5 +24,7 @@ $app->add(new \App\MiddleWares\FlashMiddleWare($container->view->getEnvironment(
 
 $app->get('/', PagesController::class . ':home');
 $app->get('/me-contacter', PagesController::class . ':getContact')->setName('contact');
+$app->get('/projets', PagesController::class . ':getProjet')->setName('projet');
 $app->post('/me-contacter', PagesController::class . ':postContact');
+$app->get('/lien-externe',PagesController::class. ':lienExterne')->setName('lienExterne');
 $app->run();

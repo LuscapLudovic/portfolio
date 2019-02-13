@@ -18,6 +18,14 @@ class PagesController extends Controller {
 
     }
 
+    public function lienExterne(RequestInterface $request, ResponseInterface $response){
+        return $this->render($response, 'pages/lienExterne.twig');
+    }
+
+    public function getProjet(RequestInterface $request, ResponseInterface $response){
+        return $this->render($response, 'pages/projet.twig');
+    }
+
     public function postContact(RequestInterface $request, ResponseInterface $response){
         $errors = [];
         Validator::email()->validate($request->getParam('email')) || $errors['email'] = 'Votre email n\'est pas valide';
