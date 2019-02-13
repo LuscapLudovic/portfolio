@@ -32,7 +32,7 @@ class Twig_Filter
      * @param callable|null $callable A callable implementing the filter. If null, you need to overwrite the "node_class" option to customize compilation.
      * @param array         $options  Options array
      */
-    public function __construct(string $name, $callable = null, array $options = [])
+    public function __construct(string $name, $callable = null, array $options = array())
     {
         if (__CLASS__ !== get_class($this)) {
             @trigger_error('Overriding '.__CLASS__.' is deprecated since version 2.4.0 and the class will be final in 3.0.', E_USER_DEPRECATED);
