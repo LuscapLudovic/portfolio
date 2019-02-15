@@ -26,6 +26,10 @@ class PagesController extends Controller {
         return $this->render($response, 'pages/projet.twig');
     }
 
+    public function getVeille(RequestInterface $request, ResponseInterface $response){
+        return $this->render($response, 'pages/veille.twig');
+    }
+
     public function postContact(RequestInterface $request, ResponseInterface $response){
         $errors = [];
         Validator::email()->validate($request->getParam('email')) || $errors['email'] = 'Votre email n\'est pas valide';
@@ -40,10 +44,12 @@ class PagesController extends Controller {
             {$request->getParam('content')}");
             $this->mailer->send($message);
             $this->flash('Votre message a bien été envoyé');
+            return $this->redirect($response,'contact');
         } else {
             $this->flash('Certains champs n\'ont pas été rempli correctement. ', 'error');
             $this->flash($errors, 'errors');
+            return $this->redirect($response,'contact', 400);
         }
-        return $this->redirect($response,'contact');
+
     }
 }
