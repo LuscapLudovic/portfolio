@@ -14,7 +14,7 @@
         </div>
     {% endif %}
 
-    <form action="{{ path_for('contact') }}" method="post">
+    <form action="{{ path_for('contact') }}" method="post" class="form">
         {{ csrf()}}
         <div class="form-group {% if flash.errors.name %}has-error{% endif %}">
             <label for="name">Votre nom</label>

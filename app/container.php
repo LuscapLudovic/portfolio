@@ -37,3 +37,9 @@ $container['mailer'] = function($container){
   $mailer = new Swift_Mailer($transport);
   return $mailer;
 };
+
+$container['environment'] = function(){
+    $scriptName = $_SERVER['SCRIPT_NAME'];
+    $_SERVER['SCRIPT_NAME'] = dirname(dirname($scriptName)) . '/' . basename($scriptName);
+    return new Slim\Http\Environment($_SERVER);
+};
