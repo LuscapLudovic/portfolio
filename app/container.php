@@ -25,7 +25,7 @@ $container['view'] = function ($container) {
 
 $container['mailer'] = function($container){
     if($container->debug){
-        $transport = new Swift_SmtpTransport('localhost', 1025);
+        $transport = new Swift_SmtpTransport('smtp.ionos.fr', 465);
     } else {
         $transport = new Swift_MailTransport();
     }
