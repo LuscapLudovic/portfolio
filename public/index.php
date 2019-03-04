@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\PagesController;
+use App\Controllers\UserController;
 
 require '../vendor/autoload.php';
 
@@ -25,6 +26,7 @@ $app->add(new \App\MiddleWares\OldMiddleWare($container->view->getEnvironment())
 $app->add(new \App\MiddleWares\TwigCsrfMiddleWare($container->view->getEnvironment(), $container->csrf));
 $app->add($container->csrf);
 
+//$app->get('/',UserController::class . ':testUser')->setName('home'); test de l'appel d'un user
 $app->get('/', PagesController::class . ':home')->setName('home');
 $app->get('/me-contacter', PagesController::class . ':getContact')->setName('contact');
 $app->get('/projets', PagesController::class . ':getProjet')->setName('projet');

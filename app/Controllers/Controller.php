@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use PDO;
 use Psr\Http\Message\ResponseInterface;
 
 class Controller{
@@ -14,6 +15,12 @@ class Controller{
     public function __construct($container)
     {
         $this->container = $container;
+    }
+
+    public function pdo(){
+            $pdo = new PDO('mysql:dbname=portfolio;host=localhost','root','');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $pdo;
     }
 
     public function render(ResponseInterface $response, $file, $params = []){
