@@ -14,7 +14,7 @@ use Respect\Validation\Validator;
 
 class UserController extends Controller {
     public function newUser(){
-
+        $prepare = $this->pdo()-prepare('');
     }
 
     public function testUser(){
