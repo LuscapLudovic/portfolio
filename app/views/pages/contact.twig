@@ -1,8 +1,9 @@
 {% extends "layout.twig" %}
 {% block content %}
-    <h1>
-        Me Contacter
-    </h1>
+    
+    <div class="contact-title">
+        <h3 class="h3"> Contactez-moi ! </h3>
+    </div>
     {% if flash.success %}
         <div class="alert alert-success">
             {{ flash.success }}
@@ -17,28 +18,28 @@
     <form action="{{ path_for('contact') }}" method="post" class="form">
         {{ csrf()}}
         <div class="form-group {% if flash.errors.name %}has-error{% endif %}">
-            <label for="name">Votre nom</label>
-            <input type="text" class="form-control" name="name" id="name" value="{{ old.name }}" required>
+            <label for="name" class="label">Votre nom</label><br/>
+            <input type="text" class="form-control-little" name="name" id="name" value="{{ old.name }}" required>
             {% if flash.errors.name %}
                 <span class="help-block">{{ flash.errors.name }}</span>
             {% endif %}
         </div>
         <div class="form-group {% if flash.errors.email %}has-error{% endif %}">
-            <label for="email">Votre email</label>
-            <input type="email" class="form-control" name="email" id="email" value="{{ old.email }}" required>
+            <label for="email" class="label">Votre email</label><br/>
+            <input type="email" class="form-control-little" name="email" id="email" value="{{ old.email }}" required>
             {% if flash.errors.email %}
                 <span class="help-block">{{ flash.errors.email }}</span>
             {% endif %}
         </div>
         <div class="form-group {% if flash.errors.content %}has-error{% endif %}">
-            <label for="content">Votre message</label>
-            <textarea type="text" class="form-control" name="content" id="content">{{ old.content }}</textarea>
+            <label for="content" class="label">Votre message</label><br/>
+            <textarea type="text" class="form-control-big" name="content" id="content">{{ old.content }}</textarea>
             {% if flash.errors.content %}
                 <span class="help-block">{{ flash.errors.content }}</span>
             {% endif %}
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Envoyer">
+            <input type="submit" class="btn-submit" value="Envoyer">
         </div>
     </form>
 {% endblock %}
