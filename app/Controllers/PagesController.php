@@ -43,6 +43,7 @@ class PagesController extends Controller {
             $message = (new \Swift_Message())
                 ->setSubject('Message de contact')
                 ->setFrom([$request->getParam('email') => $request->getParam('name')])
+                //Adresse mail cible
                 ->setTo('contact@test.fr')
                 ->setBody("un email vous a été envoyé :
             {$request->getParam('content')}");

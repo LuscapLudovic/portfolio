@@ -33,6 +33,6 @@ $app->get('/projets', PagesController::class . ':getProjet')->setName('projet');
 $app->get('/veille-techno', PagesController::class. ':getVeille')->setName('veille');
 $app->post('/me-contacter', PagesController::class . ':postContact');
 $app->get('/lien-externe',PagesController::class. ':lienExterne')->setName('lienExterne');
-$app->get('inscription', PagesController::class. ':getInscription')->setName('inscription');
-$app->post('inscrit', UserController::class. 'newUser');
+$app->get('/inscription', PagesController::class. ':getInscription')->setName('inscription');
+$app->post('/inscrit', UserController::class. 'newUser');
 $app->run();
