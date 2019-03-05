@@ -6,6 +6,10 @@ $container['debug'] = function(){
     return true;
 };
 
+$container['csrf'] = function () {
+    return new \Slim\Csrf\Guard;
+};
+
 $container['view'] = function ($container) {
     $dir = dirname(__DIR__);
     $view = new \Slim\Views\Twig($dir. '/app/views', [
@@ -32,4 +36,10 @@ $container['mailer'] = function($container){
 
   $mailer = new Swift_Mailer($transport);
   return $mailer;
+};
+
+$container['environment'] = function(){
+    $scriptName = $_SERVER['SCRIPT_NAME'];
+    $_SERVER['SCRIPT_NAME'] = dirname(dirname($scriptName)) . '/' . basename($scriptName);
+    return new Slim\Http\Environment($_SERVER);
 };

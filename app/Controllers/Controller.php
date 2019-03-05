@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use PDO;
 use Psr\Http\Message\ResponseInterface;
 
 class Controller{
@@ -16,12 +17,18 @@ class Controller{
         $this->container = $container;
     }
 
+    public function pdo(){
+        $pdo = new PDO('mysql:dbname=portfolio;host=localhost', 'root', '');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
+    }
     public function render(ResponseInterface $response, $file, $params = []){
         $this->container->view->render($response,$file, $params);
     }
 
-    public function redirect($response, $name){
-        return $response->withStatus(302)->withHeader('Location', $this->router->pathFor($name));
+    //fonction du controller pour la redirection
+    public function redirect($response, $name, $status = 302){
+        return $response->withStatus($status)->withHeader('Location', $this->router->pathFor($name));
     }
 
     public function flash($message, $type = 'success' ){
