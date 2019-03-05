@@ -18,11 +18,10 @@ class Controller{
     }
 
     public function pdo(){
-            $pdo = new PDO('mysql:dbname=portfolio;host=localhost','root','');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $pdo;
+        $pdo = new PDO('mysql:dbname=portfolio;host=localhost', 'root', '');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
     }
-
     public function render(ResponseInterface $response, $file, $params = []){
         $this->container->view->render($response,$file, $params);
     }

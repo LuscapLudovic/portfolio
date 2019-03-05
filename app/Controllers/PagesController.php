@@ -30,6 +30,10 @@ class PagesController extends Controller {
         return $this->render($response, 'pages/veille.twig');
     }
 
+    public function getInscription(RequestInterface $request, ResponseInterface $response){
+        return $this->render($response, 'pages/inscription.twig');
+    }
+
     public function postContact(RequestInterface $request, ResponseInterface $response){
         $errors = [];
         Validator::email()->validate($request->getParam('email')) || $errors['email'] = 'Votre email n\'est pas valide';
@@ -39,6 +43,7 @@ class PagesController extends Controller {
             $message = (new \Swift_Message())
                 ->setSubject('Message de contact')
                 ->setFrom([$request->getParam('email') => $request->getParam('name')])
+                //Adresse mail cible
                 ->setTo('contact@test.fr')
                 ->setBody("un email vous a été envoyé :
             {$request->getParam('content')}");
