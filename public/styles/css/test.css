@@ -68,9 +68,24 @@ nav>a:hover{
 	text-align: center;
 }
 
-.icon{
-	text-align: right;
+.inscription{
+	background-image: url("../images/icon.jpg");
+	background-size: 45px 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	float: right;
 	font-weight: normal;
+	color: transparent;
+}
+
+.connexion{
+	background-image: url("../images/connexion.png");
+	background-size: 45px 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	float: right;
+	font-weight: normal;
+	color: transparent;
 }
 /* css home */
 
