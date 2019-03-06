@@ -4,15 +4,18 @@
     <link rel="stylesheet" href="styles/css/test.css">
 </head>
 <body>
-<nav class="navbar">
-    <a href="{{ path_for('home') }}">PortFolio</a>
-    <a href="{{ path_for('projet') }}">Projets</a>
-    <a href="{{ path_for('contact') }}">Contact</a>
-    <a href="{{ path_for('lienExterne') }}">Liens Externes</a>
-    <a href="{{ path_for('veille') }}">Veille Technologique</a>
-    <a href="{{ path_for('inscription') }}">Inscription</a>
-    <a href="{{ path_for('connexion') }}">Connexion</a>
-</nav>
+    <div class="menu">
+        <nav class="navbar">
+
+        <a href="{{ path_for('home') }}">PortFolio</a>
+        <a href="{{ path_for('projet') }}">Projets</a>
+        <a href="{{ path_for('contact') }}">Contact</a>
+        <a href="{{ path_for('lienExterne') }}">Liens Externes</a>
+        <a href="{{ path_for('veille') }}">Veille Technologique</a>
+        <a class="inscription" href="{{ path_for('inscription') }}">Inscription</a>
+        <a class="connexion" href="{{ path_for('connexion') }}">Connexion</a>
+    </nav>
+</div>
     {% block content %}
     {% endblock %}
 </body>
