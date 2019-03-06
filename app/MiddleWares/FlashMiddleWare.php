@@ -12,11 +12,21 @@ class FlashMiddleWare{
      */
     private $twig;
 
+    /**
+     * FlashMiddleWare constructor.
+     * @param \Twig_Environment $twig
+     */
     public function __construct(\Twig_Environment $twig)
     {
         $this->twig = $twig;
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $next
+     * @return mixed
+     */
     public function __invoke( Request $request,Response $response, $next)
     {
         $this->twig->addGlobal('flash', isset($_SESSION['flash']) ? $_SESSION['flash'] : []);

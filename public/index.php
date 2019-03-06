@@ -4,7 +4,7 @@ use App\Controllers\PagesController;
 use App\Controllers\UserController;
 
 require '../vendor/autoload.php';
-
+// Initialisation de la session
 session_start();
 
 $app = new \Slim\App([
@@ -13,9 +13,9 @@ $app = new \Slim\App([
     ]
 ]);
 
-require('../app/container.php');
+// Container
 
-//Container
+require('../app/container.php');
 
 $container = $app->getContainer();
 
@@ -26,7 +26,9 @@ $app->add(new \App\MiddleWares\OldMiddleWare($container->view->getEnvironment())
 $app->add(new \App\MiddleWares\TwigCsrfMiddleWare($container->view->getEnvironment(), $container->csrf));
 $app->add($container->csrf);
 
-//$app->get('/',UserController::class . ':testUser')->setName('home'); test de l'appel d'un user
+// Liste des appelles de fonction venant des controllers
+$app->get('/connexion', PagesController::class. ':getConnexion')->setName('connexion');
+$app->post('/connexion', UserController::class. ':postConnexion');
 $app->get('/', PagesController::class . ':home')->setName('home');
 $app->get('/me-contacter', PagesController::class . ':getContact')->setName('contact');
 $app->get('/projets', PagesController::class . ':getProjet')->setName('projet');
@@ -34,5 +36,5 @@ $app->get('/veille-techno', PagesController::class. ':getVeille')->setName('veil
 $app->post('/me-contacter', PagesController::class . ':postContact');
 $app->get('/lien-externe',PagesController::class. ':lienExterne')->setName('lienExterne');
 $app->get('/inscription', PagesController::class. ':getInscription')->setName('inscription');
-$app->post('/inscrit', UserController::class. 'newUser');
+$app->post('/inscription', UserController::class. ':postInscription');
 $app->run();
