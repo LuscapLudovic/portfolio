@@ -19,7 +19,7 @@ class UserController extends Controller {
         Validator::notEmpty()->validate($request->getParam('mdp')) || $errors['mdp'] = 'Veuillez entrer un mot de passe';
         // la fonction "flash" est dans le controller c'est juste une notif
         if(empty($errors)){
-            $prepare = $this->pdo()->prepare('INSERT INTO users(login, email, mdp) VALUES ("'.htmlspecialchars($request->getParam('login')).'", "'.$request->getParam('email').'", "'.htmlspecialchars($request->getParam('mdp')).'")');
+            $prepare = $this->pdo()->prepare('INSERT INTO users(login, email, mdp) VALUES ("'.htmlspecialchars($request->getParam('login')).'", "'.$request->getParam('email').'", "'.hash('md5', $request->getParam('mdp')).'")');
             $req = $prepare->execute();
             $this->flash('Vous êtes bien inscrit');
             return $this->redirect($response, 'home');
@@ -29,6 +29,38 @@ class UserController extends Controller {
             $this->flash($errors, 'errors');
             //si tu as une page blanche au redirect change le status à 200 ou enleve le tout court.
             return $this->redirect($response,'incription', 400);
+        }
+    }
+
+    /**
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     * @return mixed
+     */
+    public function postConnexion(RequestInterface $request, ResponseInterface $response){
+        $login = $request->getParam('login');
+        $mdp = hash('md5', $request->getParam('mdp'));
+        $prepare = $this->pdo()->prepare('SELECT login, mdp FROM users WHERE login="'.$login.'" AND mdp="'.$mdp.'"');
+        $req = $prepare->execute();
+        /*while($result = $req->fetchAll()){
+            $results[]=$result;
+        }*/
+        if(isset($req)){
+            $_SESSION['login'] = $login;
+            return $this->redirect($response, 'home');
+        } else {
+            $this->flash('Login ou mot de passe incorrect', 'error');
+            return $this->redirect($response, 'connexion', 400);
+        }
+    }
+
+    /**
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     */
+    public function deconnexion(RequestInterface $request, ResponseInterface $response){
+        if(isset($_SESSION['login'])){
+            session_destroy();
         }
     }
 }

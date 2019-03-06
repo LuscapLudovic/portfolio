@@ -27,6 +27,8 @@ $app->add(new \App\MiddleWares\TwigCsrfMiddleWare($container->view->getEnvironme
 $app->add($container->csrf);
 
 // Liste des appelles de fonction venant des controllers
+$app->get('/connexion', PagesController::class. ':getConnexion')->setName('connexion');
+$app->post('/connexion', UserController::class. ':postConnexion');
 $app->get('/', PagesController::class . ':home')->setName('home');
 $app->get('/me-contacter', PagesController::class . ':getContact')->setName('contact');
 $app->get('/projets', PagesController::class . ':getProjet')->setName('projet');

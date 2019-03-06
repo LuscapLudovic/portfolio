@@ -43,3 +43,7 @@ $container['environment'] = function(){
     $_SERVER['SCRIPT_NAME'] = dirname(dirname($scriptName)) . '/' . basename($scriptName);
     return new Slim\Http\Environment($_SERVER);
 };
+
+$container['session'] = function (){
+    return new Session();
+};
