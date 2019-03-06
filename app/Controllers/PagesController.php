@@ -49,6 +49,10 @@ class PagesController extends Controller {
         return $this->render($response, 'pages/projet.twig');
     }
 
+    public function getConnexion(RequestInterface $request, ResponseInterface $response){
+        return $this->render($response, 'pages/connexion.twig');
+    }
+
     /**
      * @param RequestInterface $request
      * @param ResponseInterface $response

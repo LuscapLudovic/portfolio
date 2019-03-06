@@ -17,12 +17,23 @@ class TwigCsrfMiddleWare{
      */
     private $csrf;
 
+    /**
+     * TwigCsrfMiddleWare constructor.
+     * @param \Twig_Environment $twig
+     * @param Guard $csrf
+     */
     public function __construct(\Twig_Environment $twig, Guard $csrf)
     {
         $this->twig = $twig;
         $this->csrf = $csrf;
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $next
+     * @return mixed
+     */
     public function __invoke( Request $request,Response $response, $next)
     {
         $csrf = $this->csrf;
