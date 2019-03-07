@@ -37,6 +37,21 @@ class UserController extends Controller {
      * @param ResponseInterface $response
      * @return mixed
      */
+    public function supprimerCompte(RequestInterface $request, ResponseInterface $response){
+        if(isset($_SESSION['login'])){
+            $prepare = $this->pdo()->prepare('DELETE FROM users WHERE login="'.$_SESSION['login'].'"');
+            $req = $prepare->execute();
+            unset($_SESSION['login']);
+            $this->flash('Votre compte a bien été supprimé');
+            return $this->redirect($response, 'home');
+        }
+    }
+
+    /**
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     * @return mixed
+     */
     public function postConnexion(RequestInterface $request, ResponseInterface $response){
         $login = $request->getParam('login');
         $mdp = hash('md5', $request->getParam('mdp'));
