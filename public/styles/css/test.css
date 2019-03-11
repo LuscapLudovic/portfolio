@@ -18,6 +18,7 @@ html {
 	background-position: center;
 	font-weight: normal;
 	color: transparent;
+	padding-right: 2px 2px 2px 2px;
 }
 
 .deconnexion{
@@ -27,22 +28,25 @@ html {
 	background-position: center;
 	font-weight: normal;
 	color: transparent;
+	padding-right: 2px 2px 2px 2px;
 }
 .inscription{
 	background-image: url("../images/icon.jpg");
-	background-size: 45px 30px;
+	background-size: 45px 33px;
 	background-repeat: no-repeat;
 	background-position: center;
 	font-weight: normal;
 	color: transparent;
+	padding-right: 2px 2px 2px 2px;
 }
 .user{
-	background-image: url("..images/user.png");
-	background-size: 45px 30px;
+	background-image: url("../images/user.png");
+	background-size: 45px 40px;
 	background-repeat: no-repeat;
 	background-position: center;
 	font-weight: normal;
-	color: transparent;
+	color: transparent;	
+	padding-right: 2px 2px 2px 2px;
 }
 .contact-title{
 	text-align: justify;
@@ -155,7 +159,6 @@ nav>a:hover{
 
 /* The navigation menu links */
 .sidenav a {
-
 	padding: 8px 0px 8px 0px;
 	text-decoration: none;
 	font-size: 9px;
@@ -163,11 +166,18 @@ nav>a:hover{
 	color: transparent;
 	font-weight: bold;
     font-size: 15px;
-    -webkit-transition: all .3s ease;*/
+    -webkit-transition: all .3s ease;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
+	padding: 8px 8px 8px 8px;
+	text-decoration: none;
+	font-size: 9px;
+	display: block;
+	color: transparent;
+	font-weight: bold;
+    font-size: 15px;
   background: rgba(124, 109, 109, 0.5);
   color: #f4511e;
   transform: scale(1.5);
@@ -176,7 +186,6 @@ nav>a:hover{
 
 
 /* css home */
-
 .cv-link{
 	margin: auto;
 	width: 25%;
