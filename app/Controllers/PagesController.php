@@ -46,7 +46,16 @@ class PagesController extends Controller {
      * @param ResponseInterface $response
      */
     public function getProjet(RequestInterface $request, ResponseInterface $response){
-        return $this->render($response, 'pages/projet.twig');
+        //Condition d'affichage si la variable '$_SESSION["login"]' est null
+        // Ne fonctionne pas (Probablement car la variable n'est pas initialisé)
+        if(isset($_SESSION['login']))
+        {
+            return $this->render($response, 'pages/projet.twig');
+        }
+        else
+        {
+            return $this->render($response, 'pages/error.twig');
+        }
     }
 
     public function getConnexion(RequestInterface $request, ResponseInterface $response){
@@ -58,7 +67,7 @@ class PagesController extends Controller {
      * @param ResponseInterface $response
      */
     public function getVeille(RequestInterface $request, ResponseInterface $response){
-        return $this->render($response, 'pages/veille.twig');
+            return $this->render($response, 'pages/veille.twig');
     }
 
     /**
