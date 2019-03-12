@@ -37,4 +37,5 @@ $app->post('/me-contacter', PagesController::class . ':postContact');
 $app->get('/lien-externe',PagesController::class. ':lienExterne')->setName('lienExterne');
 $app->get('/inscription', PagesController::class. ':getInscription')->setName('inscription');
 $app->post('/inscription', UserController::class. ':postInscription');
+$app->get('/deconnexion', UserController::class . ':deconnexion')->setName('deconnexion');
 $app->run();

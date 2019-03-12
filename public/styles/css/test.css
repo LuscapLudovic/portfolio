@@ -7,29 +7,94 @@ html {
 	color: white;
 }
 
+.menu {
+	text-align: center;
+}
 
-/* css pour les contents des pages */
-.home-presentation {
+.connexion{
+	background-image: url("../images/connexion.png");
+	background-size: 45px 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-weight: normal;
+	color: transparent;
+	padding-right: 2px 2px 2px 2px;
+}
+
+.deconnexion{
+	background-image: url("../images/deconnexion.png");
+	background-size: 45px 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-weight: normal;
+	color: transparent;
+	padding-right: 2px 2px 2px 2px;
+}
+.inscription{
+	background-image: url("../images/icon.jpg");
+	background-size: 45px 33px;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-weight: normal;
+	color: transparent;
+	padding-right: 2px 2px 2px 2px;
+}
+.user{
+	background-image: url("../images/user.png");
+	background-size: 45px 40px;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-weight: normal;
+	color: transparent;	
+	padding-right: 2px 2px 2px 2px;
+}
+.contact-title{
 	text-align: justify;
 	margin-top: 5px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 2px;
-	
+	width: 65%;
+	border: 3px solid rgba(245, 94, 47, 0.5);
+}
+
+
+/* css pour les contents des pages */
+.home-presentation {
+	text-align: justify, center;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 2px;
+	width: 65%;
+	border: 3px solid rgba(245, 94, 47, 0.5);
 }
 .home-bts {
 	text-align: justify;
 	margin: auto;
+	width: 65%;
+	border: 3px solid rgba(245, 94, 47, 0.5);
 }
 .home-text{
 	text-align: justify;
 	padding: 2px 2px 2px 2px;
+	background-color: rgba(245, 94, 47, 0.5);
+}
+
+.home-cv{
+	text-align: justify;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 2px;
+	width: 65%;
+	border: 3px solid rgba(245, 94, 47, 0.5);
 }
 .h3{
 	color: white;
 	height: 60px;
 	width: 100%;
-	padding-top: 30px;
+	padding-top: 35px;
 	background-color: rgba(124, 109, 109, 0.5);
 	text-align: center;
 	margin: 0;
@@ -44,6 +109,10 @@ h3{
 nav {
 	position: relative;
 	background-color: rgb(150, 140, 140);
+}
+nav:hover {
+	position: relative;
+  	background-color: rgba(17, 17, 17, 0.8); /* Black */
 }
 nav>a{
 	text-align: center;
@@ -64,31 +133,59 @@ nav>a:hover{
     transform: scale(1.5);
 }
 
-.menu {
-	text-align: center;
+/* The sidebar menu */
+.sidenav {
+  height: auto; /* Full-height: remove this if you want "auto" height */
+  width: 80px; /* Set the width of the sidebar */
+  position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgb(150, 140, 140); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  margin-top: 50px;
+  margin-left: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.sidenav:hover {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 140px; /* Set the width of the sidebar */
+  background-color: rgba(17, 17, 17, 0.8); /* Black */
+  margin-top: 50px;
+  margin-left: 8px;
+  padding-top: 20px;
 }
 
-.inscription{
-	background-image: url("../images/icon.jpg");
-	background-size: 45px 30px;
-	background-repeat: no-repeat;
-	background-position: center;
-	float: right;
-	font-weight: normal;
+/* The navigation menu links */
+.sidenav a {
+	padding: 8px 0px 8px 0px;
+	text-decoration: none;
+	font-size: 9px;
+	display: block;
 	color: transparent;
+	font-weight: bold;
+    font-size: 15px;
+    -webkit-transition: all .3s ease;
 }
 
-.connexion{
-	background-image: url("../images/connexion.png");
-	background-size: 45px 30px;
-	background-repeat: no-repeat;
-	background-position: center;
-	float: right;
-	font-weight: normal;
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+	padding: 8px 8px 8px 8px;
+	text-decoration: none;
+	font-size: 9px;
+	display: block;
 	color: transparent;
+	font-weight: bold;
+    font-size: 15px;
+  background: rgba(124, 109, 109, 0.5);
+  color: #f4511e;
+  transform: scale(1.5);
+  text-align: center;
 }
+
+
 /* css home */
-
 .cv-link{
 	margin: auto;
 	width: 25%;
@@ -158,3 +255,5 @@ h1{
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388; 
 }
+
+
