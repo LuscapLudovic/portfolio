@@ -75,7 +75,9 @@ class UserController extends Controller {
      */
     public function deconnexion(RequestInterface $request, ResponseInterface $response){
         if(isset($_SESSION['login'])){
+            unset($_SESSION['login']);
             session_destroy();
         }
+        return $this->redirect($response, 'home');
     }
 }
