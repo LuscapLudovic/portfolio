@@ -15,10 +15,15 @@
     </div>
 
     <div class="sidenav">
-            <a class="connexion" href="{{ path_for('connexion') }}">Connexion</a>
+        {#{% if app.session.get('login') is defined %}#}
+        {# les conditions en twig se font de cette façon le "is defined" équivaut au "isset" #}
             <a class="deconnexion" href="{{ path_for('deconnexion') }}">Déconnexion </a>
-            <a class="inscription" href="{{ path_for('inscription') }}">Inscription</a>
             <a class="user" href="">Mon Espace</a>
+        {#{% else %}#}
+            <a class="connexion" href="{{ path_for('connexion') }}">Connexion</a>
+            <a class="inscription" href="{{ path_for('inscription') }}">Inscription</a>
+        {#{% endif %}#}
+        {{ dump(app.session.get('login')) }}
     </div>
     {% block content %}
     {% endblock %}
