@@ -13,21 +13,13 @@
     <div class="contact-title">
         <h3 class="h3"> Inscription</h3>
     </div>
-
-    <form action="{{ path_for('inscription') }}" method="post" class="form">
+    <form action="{{ path_for('connexion') }}" method="post" class="form">
         {{ csrf() }}
         <div class="{% if flash.errors.login %}has-error{% endif %}">
-            <label class="label">Nom d'utilisateur</label> <br>
-            <input class="form-control-little"  type="text" name="login" id="login" value="" required>
+            <label class="label" >Nom d'utilisateur</label> <br>
+            <input class="form-control-little" type="text" name="login" id="login" value="" required>
             {% if flash.errors.login %}
                 <span class="help-block">{{ flash.errors.login }}</span>
-            {% endif %}
-        </div>
-        <div class="{% if flash.errors.email %}has-error{% endif %}">
-            <label class="label">Adresse mail</label> <br>
-            <input class="form-control-little"  type="email" name="email" id="email" value="" required>
-            {% if flash.errors.email %}
-                <span class="help-block">{{ flash.errors.email }}</span>
             {% endif %}
         </div>
         <div class="{% if flash.errors.mdp %}has-error{% endif %}">
@@ -36,10 +28,9 @@
             {% if flash.errors.mdp %}
                 <span class="help-block">{{ flash.errors.mdp }}</span>
             {% endif %}
-
         </div>
         <div>
-            <input class="btn-submit" onClick="alert('Votre inscription a bien été prise en compte ! Vous pouvez désormais accéder à toutes les pages.');" type="submit" value="Valider">
+            <input class="btn-submit" type="submit" value="Valider">
         </div>
     </form>
 {% endblock %}

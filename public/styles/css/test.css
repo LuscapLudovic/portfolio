@@ -1,7 +1,160 @@
-.h1color{
-    color: red;
+/* css prit en compte dans tous le projet */
+html {
+	font-family: Helvetica Neue, sans-serif;
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
 }
 
-.licolor{
-    color: red;
+
+/* css pour les contents des pages */
+.home-presentation {
+	text-align: justify;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 2px;
+	
+}
+.home-bts {
+	text-align: justify;
+	margin: auto;
+}
+.home-text{
+	text-align: justify;
+	padding: 2px 2px 2px 2px;
+}
+.h3{
+	color: white;
+	height: 60px;
+	width: 100%;
+	padding-top: 30px;
+	background-color: rgba(124, 109, 109, 0.5);
+	text-align: center;
+	margin: 0;
+}
+h3{
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+
+/* navigation bar */
+nav {
+	position: relative;
+	background-color: rgb(150, 140, 140);
+}
+nav>a{
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+    display: inline-block;
+    float: none;
+    font-size: 15px;
+    line-height: 40px;
+    padding: 0 0.5em;
+    -webkit-transition: all .3s ease;
+
+}
+nav>a:hover{
+    background: rgba(124, 109, 109, 0.5);
+    color: #f4511e;
+    transform: scale(1.5);
+}
+
+.menu {
+	text-align: center;
+}
+
+.inscription{
+	background-image: url("../images/icon.jpg");
+	background-size: 45px 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	float: right;
+	font-weight: normal;
+	color: transparent;
+}
+
+.connexion{
+	background-image: url("../images/connexion.png");
+	background-size: 45px 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	float: right;
+	font-weight: normal;
+	color: transparent;
+}
+/* css home */
+
+.cv-link{
+	margin: auto;
+	width: 25%;
+	padding: 10px;
+}
+
+h1{
+	color: red;
+}
+
+
+/* css contact */
+
+.contact-title{
+	margin-top: 5px;
+}
+
+.label{
+
+}
+.form{
+	margin-top: 10px;
+	text-align: center;
+}
+.form-control-little{
+	width: 285px;
+  height: 20px;
+  margin-bottom: 25px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-control-big{
+	width: 285px;
+  height: 80px;
+  margin-bottom: 25px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+  
+
+.btn-submit {
+  border-radius: 4px;
+  background-color: rgba(124, 109, 109, 0.5);
+  font-size: 28px;
+  padding: 2px;
+  margin-left: 3px;
+  margin-top: 5px;
+  width: 150px;
+  height: 50px;
+  color: white;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+} 
+
+.btn-submit:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
 }
