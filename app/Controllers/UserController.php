@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Helper\Session;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Respect\Validation\Validator;
@@ -57,9 +58,6 @@ class UserController extends Controller {
         $mdp = hash('md5', $request->getParam('mdp'));
         $prepare = $this->pdo()->prepare('SELECT login, mdp FROM users WHERE login="'.$login.'" AND mdp="'.$mdp.'"');
         $req = $prepare->execute();
-        /*while($result = $req->fetchAll()){
-            $results[]=$result;
-        }*/
         if(isset($req)){
             $_SESSION['login'] = $login;
             return $this->redirect($response, 'home');
@@ -72,6 +70,7 @@ class UserController extends Controller {
     /**
      * @param RequestInterface $request
      * @param ResponseInterface $response
+     * @return mixed
      */
     public function deconnexion(RequestInterface $request, ResponseInterface $response){
         if(isset($_SESSION['login'])){
