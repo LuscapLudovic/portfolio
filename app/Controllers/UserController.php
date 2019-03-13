@@ -61,6 +61,7 @@ class UserController extends Controller {
         if(isset($req)){
             $session = new Session();
             $session->set('login', $login);
+            $session->get('login');
             return $this->redirect($response, 'home');
         } else {
             $this->flash('Login ou mot de passe incorrect', 'error');
@@ -76,7 +77,6 @@ class UserController extends Controller {
     public function deconnexion(RequestInterface $request, ResponseInterface $response){
         if(isset($_SESSION['login'])){
             unset($_SESSION['login']);
-            session_destroy();
         }
         return $this->redirect($response, 'home');
     }
