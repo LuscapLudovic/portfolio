@@ -59,7 +59,8 @@ class UserController extends Controller {
         $prepare = $this->pdo()->prepare('SELECT login, mdp FROM users WHERE login="'.$login.'" AND mdp="'.$mdp.'"');
         $req = $prepare->execute();
         if(isset($req)){
-            $_SESSION['login'] = $login;
+            $session = new Session();
+            $session->set('login', $login);
             return $this->redirect($response, 'home');
         } else {
             $this->flash('Login ou mot de passe incorrect', 'error');
