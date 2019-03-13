@@ -1,5 +1,7 @@
 <?php
 
+use App\Helper\Session;
+
 $container = $app->getContainer();
 
 $container['debug'] = function(){

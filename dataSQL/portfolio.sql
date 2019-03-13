@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 04 fév. 2019 à 20:37
+-- Généré le :  mer. 13 mars 2019 à 09:02
 -- Version du serveur :  10.1.30-MariaDB
 -- Version de PHP :  7.2.2
 
@@ -25,30 +25,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `posts`
+-- Structure de la table `users`
 --
 
-CREATE TABLE `posts` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `login` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mdp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `posts`
+-- Déchargement des données de la table `users`
 --
 
-INSERT INTO `posts` (`id`, `name`) VALUES
-(1, 'Article 1'),
-(2, 'Article 2');
+INSERT INTO `users` (`id`, `login`, `email`, `mdp`) VALUES
+(7, 'testUtilisateur', 'fds@aze.fr', '5f4dcc3b5aa765d61d8327deb882cf99');
 
 --
 -- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `posts`
+-- Index pour la table `users`
 --
-ALTER TABLE `posts`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,10 +57,10 @@ ALTER TABLE `posts`
 --
 
 --
--- AUTO_INCREMENT pour la table `posts`
+-- AUTO_INCREMENT pour la table `users`
 --
-ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
