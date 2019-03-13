@@ -109,6 +109,7 @@ h3{
 nav {
 	position: relative;
 	background-color: rgb(150, 140, 140);
+	transition: all .2s ease-in;
 }
 nav:hover {
 	position: relative;
@@ -147,10 +148,11 @@ nav>a:hover{
   margin-left: 8px;
   padding-top: 20px;
   padding-bottom: 20px;
+  transition: width 2s;
+  -webkit-transition: width 1s;
 }
 .sidenav:hover {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 140px; /* Set the width of the sidebar */
+	width: 140px;
   background-color: rgba(17, 17, 17, 0.8); /* Black */
   margin-top: 50px;
   margin-left: 8px;
@@ -159,7 +161,7 @@ nav>a:hover{
 
 /* The navigation menu links */
 .sidenav a {
-	padding: 8px 0px 8px 0px;
+	padding: 15px 0px 15px 0px;
 	text-decoration: none;
 	font-size: 9px;
 	display: block;
