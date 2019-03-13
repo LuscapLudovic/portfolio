@@ -21,6 +21,7 @@ $container = $app->getContainer();
 
 //MiddleWare
 
+$app->add(new \App\MiddleWares\SessionMiddleWare($container->view->getEnvironment()));
 $app->add(new \App\MiddleWares\FlashMiddleWare($container->view->getEnvironment()));
 $app->add(new \App\MiddleWares\OldMiddleWare($container->view->getEnvironment()));
 $app->add(new \App\MiddleWares\TwigCsrfMiddleWare($container->view->getEnvironment(), $container->csrf));

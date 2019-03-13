@@ -11,6 +11,13 @@ namespace App\Helper;
 
 class Session
 {
+    private $cookieTime;
+
+    public function __construct()
+    {
+        $this->cookieTime = strtotime('+30 days');
+    }
+
     /**
      * @param $name
      * @return mixed
@@ -30,5 +37,21 @@ class Session
      */
     public function set($name, $value) {
         $_SESSION[$name] = $value;
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     */
+    public function setCookie($name, $value) {
+        setcookie($name, $value, $this->cookieTime);
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function getCookie($name) {
+        return $_COOKIE[$name];
     }
 }
