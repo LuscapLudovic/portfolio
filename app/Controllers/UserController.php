@@ -28,7 +28,6 @@ class UserController extends Controller {
             // Message d'erreur lorsqu'un des champs n'est pas rempli correctement
             $this->flash('Certains champs n\'ont pas été rempli correctement ', 'error');
             $this->flash($errors, 'errors');
-            //si tu as une page blanche au redirect change le status à 200 ou enleve le tout court.
             return $this->redirect($response,'incription', 400);
         }
     }
@@ -79,5 +78,19 @@ class UserController extends Controller {
             unset($_SESSION['login']);
         }
         return $this->redirect($response, 'home');
+    }
+
+    /**
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     */
+    public function getMonEspace(RequestInterface $request, ResponseInterface $response){
+        $prepare = 'SELECT email FROM users WHERE login = "'.$_SESSION['login'].'"';
+        $req = $this->pdo()->query($prepare);
+        while($donnees = $req->fetch()){
+            $mail = $donnees['email'];
+            $_SESSION['email'] = $mail;
+        }
+        return $this->render($response, 'pages/monEspace.twig');
     }
 }

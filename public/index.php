@@ -22,6 +22,7 @@ $container = $app->getContainer();
 //MiddleWare
 
 $app->add(new \App\MiddleWares\SessionMiddleWare($container->view->getEnvironment()));
+$app->add(new \App\MiddleWares\EmailMiddleWare($container->view->getEnvironment()));
 $app->add(new \App\MiddleWares\FlashMiddleWare($container->view->getEnvironment()));
 $app->add(new \App\MiddleWares\OldMiddleWare($container->view->getEnvironment()));
 $app->add(new \App\MiddleWares\TwigCsrfMiddleWare($container->view->getEnvironment(), $container->csrf));
@@ -37,6 +38,7 @@ $app->get('/veille-techno', PagesController::class. ':getVeille')->setName('veil
 $app->post('/me-contacter', PagesController::class . ':postContact');
 $app->get('/lien-externe',PagesController::class. ':lienExterne')->setName('lienExterne');
 $app->get('/inscription', PagesController::class. ':getInscription')->setName('inscription');
+$app->get('/monEspace', UserController::class. ':getMonEspace')->setName('monEspace');
 $app->post('/inscription', UserController::class. ':postInscription');
 $app->get('/deconnexion', UserController::class . ':deconnexion')->setName('deconnexion');
 
