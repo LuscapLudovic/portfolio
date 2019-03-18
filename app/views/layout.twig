@@ -17,7 +17,7 @@
     <div class="sidenav">
         {% if login|length > 1 %}
             <a class="deconnexion" href="{{ path_for('deconnexion') }}">Déconnexion </a>
-            <a class="user" href="">Mon Espace</a>
+            <a class="user" href="{{ path_for('monEspace') }}">Mon Espace</a>
         {% else %}
             <a class="connexion" href="{{ path_for('connexion') }}">Connexion</a>
             <a class="inscription" href="{{ path_for('inscription') }}">Inscription</a>
